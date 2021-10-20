@@ -1,0 +1,73 @@
+﻿@model HRProject_NTier.CORE.Entities.Spending
+
+@{
+    ViewData["Title"] = "ResimDosyaEkle";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ResimDosyaEkle" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Ek Belge</label>
+                <input asp-for="InvoiceImageFile" type="file" class="form-control" accept=".pdf,.docx, .png, .jpeg" />
+                <span asp-validation-for="InvoiceImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="PersonnelID" class="control-label"></label>
+                    <select asp-for="PersonnelID" class="form-control" asp-items="ViewBag.PersonnelID"></select>*@
+
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedDate" class="control-label"></label>
+                <input asp-for="ModifiedDate" class="form-control" />
+                <span asp-validation-for="ModifiedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsActived" /> @Html.DisplayNameFor(model => model.IsActived)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,41 @@
+div.scrollmenu {
+    background-color:white;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+    div.scrollmenu a {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+    }
+
+        div.scrollmenu a:hover {
+            background-color: #777;
+        }
+
+.profilFoto {
+    height: 100px;
+}
+
+.ortalama {
+    width: 100px;
+}
+
+.personelList {
+    padding-left: 10px;
+}
+.card-title {
+    font-size: 20px !important;
+    text-align: center;
+}
+
+.kategoriFoto {
+    height: 100px;
+}
+
+.fotoContainer {
+    text-align: center;
+}

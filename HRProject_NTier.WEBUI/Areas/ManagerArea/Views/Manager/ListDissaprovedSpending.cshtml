@@ -1,0 +1,101 @@
+﻿@{
+    Layout = null;
+    IEnumerable<Spending> DisapprovedOnes = ViewData[("PersonelSpendingsDisapprovals")] as IEnumerable<Spending>;
+}
+
+
+
+<head>
+
+
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+    <link href="toastr.css" rel="stylesheet" />
+    <script src="toastr.js"></script>
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+
+
+</head>
+
+
+
+<body>
+
+    <h6 style="font-size: 25px; margin-top: 15px;text-align:center">Reddedilen Harcamalar </h6>
+    <div class="container mb-3 mt-3">
+        <div class="scrollmenu">
+            <a asp-controller="Manager" asp-action="ListActiveSpending"><strong>Onay Bekleyenler</strong><label>(@ViewBag.BekleyenSayisi)</label></a>
+            <a asp-controller="Manager" asp-action="ListAproovedSpending" asp-route-id=""><strong>Onaylananlar</strong><label>(@ViewBag.OnaylananSayisi)</label></a>
+            <a asp-controller="Manager" asp-action="ListDissaprovedSpending"><strong>Reddedilenler</strong><label>(@ViewBag.ReddedilenSayisi)</label></a>
+            <a style="margin-left:520px;" asp-controller="Home" asp-action="Index"><strong>Ana Sayfa</strong></a>
+        </div>
+        <table class="table table-striped table-bordered" id="table_id">
+            <thead>
+                <tr>
+                    @*<th>Profil Resmi</th>*@
+                    <th>Personel Adı</th>
+                    <th>Personel Soyadı</th>
+                    <th>Harcama Tipi</th>
+                    @*<th>İzin Açıklaması</th>*@
+                    @*<th>Harcama Başlangıç Tarihi</th>
+                    <th>Harcama Bitiş Tarihi</th>*@
+                    <th>Durum</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in DisapprovedOnes)
+                {
+                    <tr>
+
+                        @*<td><img src="" width="50" height="50" alt="" /></td>*@
+
+                        <td>@item.Personnel.Name</td>
+                        <td>@item.Personnel.Surname</td>
+                        <td>@Html.DisplayFor(modelItem => item.spendingType)</td>
+                        @*<td>@item.permissionType</td>*@
+                        @*<td>@item.Description</td>*@
+                        @*<td>@item.StartedDate.ToShortDateString()</td>
+                        <td>@item.EndDate.ToShortDateString()</td>*@
+
+                        <td><p style="color:red">Reddedildi</p></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable({
+
+                "pagingType": "full_numbers",
+                /* order:[[3,'desc']],*/
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("toasterdanger").click(function () {
+                alert("OK");
+
+            });
+
+        });
+
+    </script>
+</body>

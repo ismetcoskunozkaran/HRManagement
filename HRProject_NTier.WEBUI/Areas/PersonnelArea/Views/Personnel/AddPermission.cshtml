@@ -1,0 +1,44 @@
+﻿@model AddPermissionVM 
+@{
+    ViewData["Title"] = "AddPermission";    
+}
+
+<h2>AddPermission</h2>
+
+<div class="container mb-3 mt-3">
+
+    <h2 class="text-left" style="margin-bottom: 50px; margin-top:100px;text-align:center"><b> İzin Ekle </b></h2>
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <form asp-controller="Personnel" asp-action="AddPermission" method="post" enctype="multipart/form-data">
+
+            <label>İzin Adı:</label>
+            <input type="text" style="width:825px;height: 40px" asp-for="Description"></>
+            <span asp-validation-for="Description" class="text-danger"></span>
+
+            <label>Başlangıç Tarihi:</label>
+            <input type="text" style="width:825px;height: 40px" asp-for="StartedDate"></>
+            <span asp-validation-for="StartedDate" class="text-danger"></span>
+
+            <label>Başlangıç Bitiş Tarihi:</label>
+            <input type="text" style="width:825px;height: 40px" asp-for="EndDate"></>
+            <span asp-validation-for="EndDate" class="text-danger"></span>
+
+            <label>Başlangıç Tarihi:</label>
+            <input type="text" style="width:825px;height: 40px" asp-for="StartedDate"></><br /> 
+            <span asp-validation-for="StartedDate" class="text-danger"></span>
+
+            <label for="">İzin Tipi: </label>
+            <select name="Permission" id="Konular">
+                @foreach (var item in ViewBag.PermissionTypes)
+                {
+                    <option value="@item.ID">@item.permissionType</option>
+                }
+
+            </select>
+
+            <button type="submit">Gönder</button>
+
+        </form>
+    </div>
+</div>

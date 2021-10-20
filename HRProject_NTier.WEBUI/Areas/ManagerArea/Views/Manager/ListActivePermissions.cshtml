@@ -1,0 +1,118 @@
+﻿
+@model IEnumerable<HRProject_NTier.CORE.ViewModels.ListPermissionsVM>
+@{
+
+    IEnumerable<Permission> personeller = ViewData[("PersonelPermissionsDetails")] as IEnumerable<Permission>;
+    Layout = null;
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+    <link href="toastr.css" rel="stylesheet" />
+    <script src="toastr.js"></script>
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+    <link href="toastr.css" rel="stylesheet" />
+    <script src="toastr.js"></script>
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+
+
+    <title>Aktif İzin Listesi</title>
+
+
+</head>
+
+<body>
+    <h6 style="font-size: 25px; margin-top: 15px;text-align:center">Onay Bekleyen İzinler</h6>
+    <div class="container mb-3 mt-3">
+        <div class="scrollmenu">
+            <a asp-controller="Manager" asp-action="ListActivePermissions"><strong>Onay Bekleyenler</strong><label>(@ViewBag.BekleyenSayisi)</label></a>
+            <a asp-controller="Manager" asp-action="ListApprovePermissions" asp-route-id=""><strong>Onaylananlar</strong><label>(@ViewBag.OnaylananSayisi)</label></a>
+            <a asp-controller="Manager" asp-action="ListDissaprovedPermissions"><strong>Reddedilenler</strong><label>(@ViewBag.ReddedilenSayisi)</label></a>
+            <a style="margin-left:520px;" asp-controller="Home" asp-action="Index"><strong>Ana Sayfa</strong></a>
+        </div>
+        <table class="table table-striped table-bordered" id="table_id">
+            <thead>
+                <tr>
+                    @*<th>Profil Resmi</th>*@
+                    <th>Personel Adı</th>
+                    <th>Personel Soyadı</th>
+                    <th>İzin Tipi</th>
+                    @*<th>İzin Açıklaması</th>*@
+                    <th>İzin Başlangıç Tarihi</th>
+                    <th>İzin Bitiş Tarihi</th>
+                    <th>Reddet</th>
+                    <th>KabulEt</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in personeller)
+                {
+                <tr>
+
+                    @*<td><a asp-controller="" asp-action="" asp-route-id=""><img src="" width="270" height="170" alt="" /></a></td>*@
+
+                    <td>@item.Personnel.Name</td>
+                    <td>@item.Personnel.Surname</td>
+                    <td>@Html.DisplayFor(modelItem => item.permissionType)</td>
+                    @*<td>@item.permissionType</td>*@
+                    @*<td>@item.permissionType</td>*@
+                    @*<td>@item.Description</td>*@
+                    <td>@item.StartedDate.ToShortDateString()</td>
+                    <td>@item.EndDate.ToShortDateString()</td>
+
+                    <td><a asp-action="DisApprovePermission" asp-controller="Manager" asp-route-id="@item.ID" class="btn btn-outline-danger" id="toasterdanger">✖️</a></td>
+                    <td><a asp-action="ApprovedPermission" asp-controller="Manager" asp-route-id="@item.ID" class="btn btn-outline-success">✔️</a></td>
+
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable({
+
+                "pagingType": "full_numbers",
+                /* order:[[3,'desc']],*/
+
+            });
+        });
+        $(function () {
+            $("#toasterdanger").click(function () {
+                toastr.s("Success Toastr!!!", "Toastr");
+
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("#toasterdanger").click(function () {
+                toastr.success("Success Toastr!!!", "Toastr");
+
+            });
+
+        });
+
+    </script>
+</body>
+

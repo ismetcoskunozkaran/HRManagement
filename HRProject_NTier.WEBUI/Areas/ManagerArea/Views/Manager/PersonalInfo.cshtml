@@ -1,0 +1,136 @@
+﻿@model HRProject_NTier.CORE.Entities.Personnel
+
+@{
+    ViewData["Title"] = "PersonalInfo";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+
+<form asp-action="PersonalInfo" style="margin-left:70px;" method="post" enctype="multipart/form-data">
+    <h3><label>@Model.Name  @Model.Surname</label></h3>
+    <input type="hidden" value="@Model.ID" />
+    <hr />
+
+    <h4>Kişisel Bilgiler</h4>
+
+    <hr />
+    <div class="row">
+
+
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="BirthDate" class="control-label"></label>
+                    <input asp-for="BirthDate" class="form-control" />
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <input asp-for="Gender" class="form-control" />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+            </div>
+            <div class=" col-md-4">
+                <div class="form-group">
+                    <label>Diploma</label>
+                    <input asp-for="FileNamePath" type="file" class="form-control" accept=".pdf,.docx">
+                    <span asp-validation-for="FileNamePath" class="text-danger"></span>
+                </div>
+                <div class="row">
+
+                    <div><a>@Model.FileName</a></div>
+
+                    @*<div class="col-md-2">
+                            <a href="">Sil</a>
+                        </div>*@
+                    @*<div class="col-md-3">
+                            <a href="">Düzenle</a>
+                        </div>*@
+
+
+                    @*<div class="col-md-2">
+                            <a href="">Yükle</a>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="HiredDate" class="control-label"></label>
+                    <input asp-for="HiredDate" class="form-control" />
+                    <span asp-validation-for="HiredDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="FiredDate" class="control-label"></label>
+                    <input asp-for="FiredDate" class="form-control" />
+                    <span asp-validation-for="FiredDate" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Salary" class="control-label"></label>
+                    <input asp-for="Salary" class="form-control" />
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsActived" /> @Html.DisplayNameFor(model => model.IsActived)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="submit" value="Kaydet" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="ListPersonnel">Geri Dön</a>
+    </div>
+</form>
+
+
+

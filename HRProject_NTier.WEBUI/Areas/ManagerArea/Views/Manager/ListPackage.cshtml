@@ -1,0 +1,57 @@
+﻿@model IEnumerable<HRProject_NTier.CORE.ViewModels.ListPackageVM>
+
+@{
+    ViewData["Title"] = "ListPackage";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+
+
+<h2>Paket Bilgisi</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <span>Paket Adı</span>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonnelNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonnelNumber)
+                </td>
+                <td>
+                    @item.StartedDate.ToShortDateString()
+                </td>
+                <td>
+                    @item.EndDate.ToShortDateString()
+                </td>
+                <td>
+                    @item.Price TL
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<HRProject_NTier.CORE.ViewModels.PaymentManagerPersonelVM> 
+
+    
+    @{
+        ViewData["Title"] = "ListPayment";
+        Layout = "~/Areas/PersonnelArea/Views/Shared/_ManagerLayout.cshtml";
+    }
+
+
+    <h2>Avans Listeleme</h2>
+    <div>
+        <a class="btn btn-outline-success" asp-action="AddPayment">Avans Ekle</a>
+    </div>
+    <table class="table">
+        <thead style="background-color:#2B333E; color:#AEB7C2">
+            <tr>
+                @ViewData["onaylanan"]
+                <th>
+                    Personel Adı Soyadı
+                </th>
+
+                <th>
+                    Ücret
+                </th>
+                <th>
+                    Açıklama
+                </th>
+
+                <th>
+                    Tarih
+                </th>
+                <th colspan="3" style="text-align:center">
+                    <span>
+                        Avans Durumu
+                    </span>
+
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PersonelName)   @Html.DisplayFor(modelItem => item.PersonelSurname)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PaymentAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @if (item.IsActived == false && item.IsApproved == false)
+                        {
+                            <span class="btn btn-default">
+                                Onay Bekliyor
+                            </span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.IsActived)
+                        {
+                            <span class="btn btn-success">
+                                Onaylandı
+                            </span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.IsApproved)
+                        {
+                            <span class="btn btn-danger">
+                                Red
+                            </span>
+                        }
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>

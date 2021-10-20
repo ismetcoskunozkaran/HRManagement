@@ -1,0 +1,130 @@
+﻿@model HRProject_NTier.CORE.Entities.Personnel
+
+@{
+    ViewData["Title"] = "PersonnelDetail";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+
+
+
+<form asp-action="PersonalInfo" style="margin-left:70px;" method="post" enctype="multipart/form-data">
+    <h3><label>@Model.Name  @Model.Surname</label></h3>
+    <input type="hidden" value="@Model.ID" />
+    <hr />
+
+    <hr />
+    <div class="row">
+
+
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label><br />
+                    <p>@Model.Name</p>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Surname" class="control-label"></label><br />
+                    <p>@Model.Surname</p>
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+            </div>
+            <div class=" col-md-4">
+                <div class="form-group">
+                    <label asp-for="MailAddress" class="control-label"></label><br />
+                    <p>@Model.MailAddress</p>
+                    <span asp-validation-for="MailAddress" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class=" col-md-4">
+                <div class="form-group">
+                    <label asp-for="BirthDate" class="control-label"></label><br />
+                    <p>@Model.BirthDate.ToShortDateString()</p>
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="HiredDate" class="control-label"></label><br />
+                    <p>@Model.HiredDate</p>
+                    <span asp-validation-for="HiredDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="FiredDate" class="control-label"></label><br />
+                    <p>@Model.FiredDate</p>
+                    <span asp-validation-for="FiredDate" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label><br />
+                    <p>@Model.City</p>
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Telephone" class="control-label"></label><br />
+                    <p>@Model.Telephone</p>
+                    <span asp-validation-for="Telephone" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <label asp-for="Address" class="control-label"></label><br />
+                <p>@Model.Address</p>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            @*<div class="col-md-4">
+                    <label asp-for="FileNamePath" class="control-label"></label><br />
+                    <p> @Model.FileName</p>
+                    <span asp-validation-for="FileNamePath" class="text-danger"></span>
+                </div>*@
+            <div class="col-md-4">
+                <label asp-for="Department" class="control-label"></label><br />
+                <p> @Model.Department</p>
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="row" style="margin-top:10px;">
+            <div class="col-md-8">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="submit" value="Kaydet" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <div>
+        <a asp-action="ListPersonnel">Geri Dön</a>
+    </div>
+</form>
+

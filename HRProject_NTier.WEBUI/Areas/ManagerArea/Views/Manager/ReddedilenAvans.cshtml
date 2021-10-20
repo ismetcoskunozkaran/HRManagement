@@ -1,0 +1,158 @@
+﻿@model IEnumerable<HRProject_NTier.CORE.ViewModels.PaymentManagerPersonelVM>
+
+
+
+@{
+    ViewData["Title"] = "ReddedilenAvans";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+
+
+<head>
+    <style>
+        .dot {
+            height: 28px;
+            width: 28px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 15px;
+            color: black;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<h2>Reddedilen Avanslar</h2>
+<div>
+    <p>
+        <a asp-controller="Manager" asp-action="ListPayment" class="btn btn-default">     @ViewData["onaylananList"]   || Avanas Listesi</a>
+        <a asp-controller="Manager" asp-action="onayBekleyen" class="btn btn-info">   @ViewData["onaylananBekleyen"]   || Onay Bekleyen  Avanslar </a>
+        <a asp-controller="Manager" asp-action="OnaylananAvans" class="btn btn-success">     @ViewData["onaylanan"] ||Onaylanan Avanslar</a>
+        <a asp-controller="Manager" asp-action="ReddedilenAvans" class="btn btn-danger">     @ViewData["reddedilen"] ||Reddedilen Avanslar</a>
+    </p>
+
+</div>
+
+<table class="table">
+    <thead style="background-color:#2B333E; color:#AEB7C2">
+        <tr>
+            <th>
+                #PayID
+            </th>
+            <th>
+                <span>
+                    Personel Adı Soyadı
+                </span>
+            </th>
+            <th>
+                <span>
+                    Açıklama
+                </span>
+            </th>
+            <th>
+                <span>
+                    Ücret
+                </span>
+            </th>
+            <th>
+                <span>
+                    Tarih
+                </span>
+            </th>
+            @*<th>
+                    <span>
+                        Onay Bekleyen
+                    </span>
+                </th>
+                <th>
+                        <span>
+                            Onaylanan
+                        </span>
+                    </th>*@
+            <th>
+                <span>
+                    Reddedilen
+                    <span class="dot">
+                        @Model.Count()
+                    </span>
+                </span>
+            </th>
+            @*<th colspan="2" style="text-align:center">
+                    <span>
+                        İşlemler
+                    </span>
+                </th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @item.ID
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonelName) @Html.DisplayFor(ModelItem => item.PersonelSurname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+
+                @*<td>
+                        @if (item.IsActived == false && item.IsApproved == false)
+                        {
+                            <span class="btn btn-default">
+                                Onay Bekliyor
+                            </span>
+                        }
+                    </td>*@
+                @*<td>
+                        @if (item.IsActived)
+                        {
+                            <span class="btn btn-success">
+                                Onaylandı
+                            </span>
+                        }
+                    </td>*@
+                <td>
+                    @if (item.IsApproved)
+                    {
+                        <span class="btn btn-danger">
+                            Red
+                        </span>
+                        @*<form asp-action="ListPayment">
+                                <div class="form-group">
+                                    <input asp-for="Message" id="RedMesssage" class="form-control" />
+                                    <span asp-validation-for="Message" class="text-danger"></span>
+                                </div>
+                            </form>*@
+
+                    }
+                </td>
+
+                @*<td>
+                        <a class="btn btn-success" asp-controller="Manager" asp-action="UpdatePayment" asp-route-id="@item.ID">Kabul Et</a> |
+                        <a class="btn btn-danger" asp-controller="Manager" asp-action="DeletePayment" asp-route-id="@item.ID">Reddet</a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+

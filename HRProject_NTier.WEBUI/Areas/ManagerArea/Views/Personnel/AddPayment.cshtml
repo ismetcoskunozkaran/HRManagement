@@ -1,0 +1,86 @@
+﻿@model HRProject_NTier.CORE.Entities.Payment
+
+@{
+    ViewData["Title"] = "AddPayment";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+<h2>AddPayment</h2>
+
+<h4>Payment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPayment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <p>
+
+                @ViewData["personelAdi"] @ViewData["personelSoyadi"]
+            </p>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p style="visibility:hidden">
+                    @ViewData["personelID"]
+                </p>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="ModifiedDate" class="control-label"></label>
+                    <input asp-for="ModifiedDate" class="form-control" />
+                    <span asp-validation-for="ModifiedDate" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+                <p>
+                    @ViewData["MesajKaydet"]
+                </p>
+
+            </div>
+            <a asp-action="ListPayment"> Geri Dön...</a>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="hidden" asp-for="IsActived" value="false" />
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="hidden" asp-for="IsDeleted" value="false" />
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="hidden" asp-for="IsApproved" value="false" />
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

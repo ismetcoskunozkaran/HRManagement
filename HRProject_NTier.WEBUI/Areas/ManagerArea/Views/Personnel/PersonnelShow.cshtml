@@ -1,0 +1,98 @@
+﻿@{
+    IEnumerable<HRProject_NTier.CORE.Entities.Personnel> personnelList = ViewData[("personnels")] as IEnumerable<HRProject_NTier.CORE.Entities.Personnel>;
+}
+
+
+@{
+    ViewData["Title"] = "PersonnelShow";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+@*@model MVCCore_HRProject.Models.DATA.Entities.Personnel*@
+
+
+
+<head>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Owl Carousel -->
+
+    <link href="~/paths/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/paths/css/owl.theme.default.css" rel="stylesheet" />
+
+    <!-- Magnific Popup -->
+
+    <link href="~/paths/css/magnific-popup.css" rel="stylesheet" />
+
+    <!-- Font Awesome Icon -->
+    <link href="~/paths/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <!-- Custom stlylesheet -->
+
+    <link href="~/paths/css/style.css" rel="stylesheet" />
+
+</head>
+<h3 style="margin-top:30px">Çalışanlar</h3>
+
+
+@*<div id="team" class="section md-padding">*@
+<div id="team" class="section ">
+
+    <div class="container">
+        <!-- Row -->
+        <div class="row">
+            <!-- team -->
+            <div class="col-sm-4">
+                @*<div class="team">*@
+                <div>
+                    @foreach (var item in personnelList)
+                    {
+                        @*<div class="team-img">*@
+                        <div>
+
+                            <a href="#"><img class="img-responsive" src="@item.ProfileImage" width="150" height="150" alt=""></a>
+                            @*<div class="overlay">
+                    <div class="team-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+                </div>*@
+                        </div>
+                        <div class="team-content">
+                            <a asp-area="ManagerArea" asp-controller="Manager" asp-action="PersonelDetail" asp-route-id="@item.ID"><label>@item.Name</label>&nbsp<label>@item.Surname</label></a>
+                            <div>
+                                <span>@item.Department</span>
+                            </div>
+                            <a asp-area="ManagerArea" asp-controller="Personnel" asp-action="UpdatePersonnel" asp-route-id="@item.ID" class="btn btn-info">Güncelle</a>
+
+                        </div>
+                        <br />
+                    }
+
+                </div>
+            </div>
+        </div>
+        <!-- /Row -->
+    </div>
+</div>
+
+<!-- Container -->
+<!-- /Container -->
+<!-- jQuery Plugins -->
+
+<script src="~/paths/js/jquery.min.js"></script>
+
+<script src="~/paths/js/bootstrap.min.js"></script>
+
+<script src="~/paths/js/owl.carousel.min.js"></script>
+
+<script src="~/paths/js/jquery.magnific-popup.js"></script>
+
+<script src="~/paths/js/main.js"></script>

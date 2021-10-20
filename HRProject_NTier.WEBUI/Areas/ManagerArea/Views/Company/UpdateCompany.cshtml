@@ -1,0 +1,47 @@
+﻿@model HRProject_NTier.CORE.Entities.Company
+@{
+    ViewData["Title"] = "UpdateCompany";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+<h2>Şirket Ayarları</h2>
+
+<partial name="_HeadPartialView" />
+<hr />
+<div class="row" style="margin-left:50px">
+    <div class="col-md-4">
+        <form asp-action="UpdateCompany">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LogoImage"></label>
+                @*<img src="~/resimler/@Model.LogoImage" width="300" height="250" /><br />*@
+                <input asp-for="LogoImage" type="file" class="form-control" accept=".jpg,.png,.gif,.jpeg">
+                <span asp-validation-for="LogoImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <input type="hidden" asp-for="ID" />
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

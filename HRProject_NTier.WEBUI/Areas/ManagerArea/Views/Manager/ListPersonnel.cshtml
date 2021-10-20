@@ -1,0 +1,84 @@
+﻿@model IEnumerable<InsertPersonnelVM>
+
+@{
+    ViewData["Title"] = "ListPersonnel";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+<style>
+
+
+    .imgPhoto {
+        height: 100px;
+    }
+</style>
+
+<form style="margin-left:70px">
+
+
+    <h2> PersonnelList</h2>
+
+
+    <p>
+        <a asp-action="AddPersonnel"> Personel Ekle</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.ProfileImage) </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MailAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.ProfileImage" class="imgPhoto" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Surname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MailAddress)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        <a asp-action="PersonnelDetails" asp-route-id="@item.ID"> Düzenle</a> |
+                        <a asp-action="PersonnelDetail" asp-route-id="@item.ID"> Detay</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID"> Sil</a> |
+                        <a asp-action="ListPersonnelPermissions" asp-route-id="@item.ID"> İzin Detay</a> |
+                        <a asp-action="ListPersonelSpending" asp-route-id="@item.ID"> Harcama Detayı</a> |
+                        <a  asp-action="AddPermission" asp-controller="Personnel" asp-route-id=""> İzin Talebinde Bulun</a> |
+
+                    </td>
+                </tr>
+             }
+        </tbody>
+    </table>
+</form>
+
+
+
+

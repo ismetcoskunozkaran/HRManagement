@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "PersonelUyelikAyarlari";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+<h2>Personel Üyelik Ayarları</h2>
+<head>
+    <style>
+        .btn1 {
+            margin-left: 900px;
+        }
+    </style>
+</head>
+
+@* Manager/hesabiPasifeAl/id => id managerID ait olacak. Yönetici sisteme login olduğunda yöneticinin id'si buraya yazılacak.
+    login işlemi yapılmadı için id dinamik gelmiyor.*@
+<div>
+    <a asp-controller="Personnel" asp-action="hesabiPasifeAl" asp-route-id="1"> <button class="btn btn-success btn1">Hesabı Pasife Alma</button></a>
+
+</div>
+
+<div class="alert alert-primary" role="alert">
+    @ViewData["mesaj"]
+</div>
+
+
+
+

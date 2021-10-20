@@ -1,0 +1,97 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowUpComingEvent</title>
+</head>
+<body>
+</body>
+</html>
+
+@*@{
+        Layout = null;
+    }
+
+    @model IEnumerable<MVCCore_HRProject.Areas.ManagerArea.Models.DATA.ViewModels.UpComingBirthdaysVM>
+
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Yaklaşan Doğum Günleri
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@item.BirthDate.</li>
+                <li class="list-group-item">@item.Name</li>
+                <li class="list-group-item">@item.Surname</li>
+            </ul>
+        </div>
+
+    }*@
+
+
+
+
+@{
+    Layout = null;
+}
+
+@{
+    //IEnumerable<MVCCore_HRProject.Areas.ManagerArea.Models.DATA.Entities.Personnel>
+    //    YaklaşanDogumGunleri = ViewData[("UpComingBirthdays")] as IEnumerable<MVCCore_HRProject.Areas.ManagerArea.Models.DATA.Entities.Personnel>;
+
+    //IEnumerable<MVCCore_HRProject.Areas.ManagerArea.Models.DATA.Entities.Permission>
+    //    Yaklaşanİzinler = ViewData[("UpComingPermissions")] as IEnumerable<MVCCore_HRProject.Areas.ManagerArea.Models.DATA.Entities.Permission>;
+
+}
+
+@*<h1>Yaklaşan İzin Günleri</h1>
+
+    @foreach (var item in Yaklaşanİzinler)
+    {
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@item.Personnel.Name</li>
+                <li class="list-group-item">@item.Personnel.Surname</li>
+                <li class="list-group-item">@item.Personnel.Name</li>
+                <li class="list-group-item">@item.StartedDate</li>
+
+                <li class="list-group-item"></li>
+            </ul>
+        </div>
+    }
+
+
+
+    <h1>Yaklaşan Doğum Günleri</h1>
+
+    @foreach (var item in YaklaşanDogumGunleri)
+    {
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                @item.Name
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@item.BirthDate.ToShortDateString()</li>
+                <li class="list-group-item">@item.Name</li>
+                <li class="list-group-item">@item.Surname</li>
+            </ul>
+        </div>
+    }*@
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<HRProject_NTier.CORE.Entities.ManagerComment>
+
+    <h3>Yorumu silmek istediğinize emin misiniz?</h3>
+    @foreach (var item in Model)
+    {
+    <div>
+
+
+
+        <form asp-area="ManagerArea" asp-controller="Manager" asp-action="DeleteManagerComment" asp-route-id="@item.ID" method="post">
+
+            <input type="hidden" asp-for="@item.ID" name="ID" />
+            <input type="submit" asp-for="@item.ID" value="Sil" class="btn btn-danger" />
+
+
+            @*<input type="submit" value="Sil" class="btn btn-danger" />*@
+
+
+        </form>
+    </div>
+    }
+

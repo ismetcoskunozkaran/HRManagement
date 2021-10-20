@@ -1,0 +1,93 @@
+﻿@model HRProject_NTier.CORE.Entities.Personnel
+
+@{
+    ViewData["Title"] = "PersonnelDetails";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+
+
+<form style="margin-left:70px;" method="post">
+    <h2>Personel Detayları</h2>
+    <div class="scrollmenu">
+        <a asp-controller="Manager" asp-action="PersonnelDetails">Genel</a>
+        <a asp-controller="Manager" asp-action="PersonalInfo" asp-route-id="@Model.ID">Kişisel Bilgiler</a>
+        <a asp-controller="Permission" asp-action="DefinePermission">İzin</a>
+        <a asp-controller="Manager" asp-action="AddPayment">Ödemeler</a>
+        <input type="submit" value="Kaydet" class="btn btn-primary" style="margin-left:600px;" />
+    </div>
+
+    <div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <img src="~/assets/img/profile-bg.png" width="200" height="200" style="margin-bottom:30px;" />
+                    <div class="row">
+                        <div class="col-md-3 mt-5" style="text-align:center"><label>@Model.Name</label> <label> @Model.Surname</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mt-5" style="text-align:center"><label>Departman :</label> <label>  @Model.Department</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mt-5" style="text-align:center"><label>Şirket :</label> <label>  @Model.CompanyName</label></div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:25px;">
+                    <h3>Genel</h3>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Surname" class="control-label"></label>
+                            <input asp-for="Surname" class="form-control" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label asp-for="MailAddress" class="control-label"></label>
+                        <input asp-for="MailAddress" class="form-control" />
+                        <span asp-validation-for="MailAddress" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4" style="margin-top:25px;">
+                        <label asp-for="Telephone" class="control-label"></label>
+                        <input asp-for="Telephone" class="form-control" />
+                        <span asp-validation-for="Telephone" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4" style="margin-top:25px;">
+                            <label asp-for="Password" class="control-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4" style="margin-top:25px;">
+                            <label asp-for="Department" class="control-label"></label>
+                            <input asp-for="Department" class="form-control" />
+                            <span asp-validation-for="Department" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:100px;">
+        <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+        <a asp-action="ListPersonnel">Personel Listesine Geri Dön</a>
+    </div>
+</form>

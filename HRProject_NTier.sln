@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRProject_NTier.CORE", "HRProject_NTier.CORE\HRProject_NTier.CORE.csproj", "{68E22941-D616-4CCA-B315-23F089419633}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRProject_NTier.DATAACCESS", "HRProject_NTier.DATAACCESS\HRProject_NTier.DATAACCESS.csproj", "{65A39903-B9FB-4749-A9F6-5725FA159B32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRProject_NTier.WEBUI", "HRProject_NTier.WEBUI\HRProject_NTier.WEBUI.csproj", "{5E7B4CC0-D6B9-4B02-A678-6A85FC904B2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68E22941-D616-4CCA-B315-23F089419633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E22941-D616-4CCA-B315-23F089419633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E22941-D616-4CCA-B315-23F089419633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E22941-D616-4CCA-B315-23F089419633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A39903-B9FB-4749-A9F6-5725FA159B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A39903-B9FB-4749-A9F6-5725FA159B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A39903-B9FB-4749-A9F6-5725FA159B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A39903-B9FB-4749-A9F6-5725FA159B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7B4CC0-D6B9-4B02-A678-6A85FC904B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7B4CC0-D6B9-4B02-A678-6A85FC904B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7B4CC0-D6B9-4B02-A678-6A85FC904B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7B4CC0-D6B9-4B02-A678-6A85FC904B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6AFEACDB-B12A-4411-9D8F-B0C31EC0EF6D}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://techphantoms.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HRProject_NTier.CORE\\HRProject_NTier.CORE.csproj
+		SccProjectName1 = HRProject_NTier.CORE
+		SccLocalPath1 = HRProject_NTier.CORE
+		SccProjectUniqueName2 = HRProject_NTier.DATAACCESS\\HRProject_NTier.DATAACCESS.csproj
+		SccProjectName2 = HRProject_NTier.DATAACCESS
+		SccLocalPath2 = HRProject_NTier.DATAACCESS
+		SccProjectUniqueName3 = HRProject_NTier.WEBUI\\HRProject_NTier.WEBUI.csproj
+		SccProjectName3 = HRProject_NTier.WEBUI
+		SccLocalPath3 = HRProject_NTier.WEBUI
+	EndGlobalSection
+EndGlobal

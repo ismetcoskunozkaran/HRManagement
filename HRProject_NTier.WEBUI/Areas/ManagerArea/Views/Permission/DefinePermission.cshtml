@@ -1,0 +1,65 @@
+﻿@model HRProject_NTier.CORE.Entities.Permission
+
+@{
+    ViewData["Title"] = "DefinePermission";
+    Layout = "~/Areas/ManagerArea/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+
+
+
+<h2>İzin Tanımı</h2>
+<hr />
+<br />
+<form>
+    <div class="row" style="margin-left:70px">
+        <div class="col-md-3">
+            <div class="form-group">
+                <select class="form-control" id="permission">
+
+                    <option>Askerlik İzni</option>
+                    <option>Babalık İzni</option>
+                    <option>Yıllık İzin</option>
+                    <option>Doğum İzni</option>
+                    <option>Ücretsiz İzin</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6"> <button class="btn btn-primary">İzin Ekle</button></div>
+    </div>
+    <div class="table-responsive table-bordered">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Başlangıç</th>
+                    <th>Bitiş</th>
+                    <th>Süre</th>
+                    <th>İzin Türü</th>
+                    <th>Açıklama</th>
+                    <th>Oluşturulma Tarihi</th>
+                    <th>Durumu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>9 Nisan 2021 09:00</td>
+                    <td>12 Nisan 2021 18:30</td>
+                    <td>2 gün</td>
+                    <td>Yıllık İzin</td>
+                    <td>--</td>
+                    <td>25 Mayıs 2021 10:32</td>
+                    <td>Onaylandı</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-10">
+        </div>
+
+    </div>
+</form>
+
